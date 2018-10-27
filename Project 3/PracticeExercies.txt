@@ -1,0 +1,28 @@
+1. The square of 1 is 1
+The square of 2 is 4
+The square of 3 is 9
+The square of 4 is 16
+The square of 5 is 25
+The square of 6 is 36
+
+2. The code doesn't compile correctly because "int k" is a declaration. When you type square(int k), the compiler thinks you're declaring a new int k, not giving it an input of k.
+
+3. The function square(int n) is not reachable by the cout statement because it's inside the int main() function. Since it's not declared in a place where it's reachable by the code, square(k) is undefined and causes unknown behavior.
+
+4. The factorial of 1 is 1
+The factorial of 2 is 2
+The factorial of 3 is 6
+The factorial of 4 is 24
+The factorial of 5 is 120
+The factorial of 6 is 720
+
+5. The factorial of 1 is 1
+The factorial of 2 is 2
+The factorial of 3 is 6
+The factorial of 4 is 24
+The factorial of 5 is 120
+The factorial of 6 is 720
+
+Between printFactorial and factorial, I think printFactorial would be much more useful because it gets rid of the extra step of typing "cout <<..." every time you want to print out a factorial.
+
+6. 

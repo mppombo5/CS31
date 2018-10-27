@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mpombo/Desktop/Q1 Classes/CS31/Projects/Project 3/House Party/poll.cpp
+iostream
+-
+string
+-
+cctype
+-
+

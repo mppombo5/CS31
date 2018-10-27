@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/mpombo/Desktop/Q1 Classes/CS31/Projects/Project 2/Code Files/rental.cpp
+iostream
+-
+string
+-
+

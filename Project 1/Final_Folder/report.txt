@@ -1,0 +1,10 @@
+In the untouched form of this program, I managed to get it to fail in a few ways. First, I said 0 registered voters were surveyed. This caused the program to divide by 0 and produce "inf%" as the resulting values, regardless of the following values (except for 0, which produced "nan%"). Amusingly, Newsom is predicted to win even when no voters are surveyed. I can also make the sum of voters who vote for Newsom and Cox larger than the number of people surveyed, resulting in percentages that add up to more than 100%.
+
+
+In logic_error.cpp, I removed the "100.0 *" from the calculations for pctNewsom and pctCox, resulting in values that are far too small and yield 0.0% when the number for either candidate is less than the total number surveyed, due to int-double rounding.
+
+
+In compile_error.cpp, I did three things to prevent the program from compiling correctly:
+1) I removed the ending quotation mark from one of the strings;
+2) I removed "using namespace std;" so the program doesn't know which library most of the commands are from; and
+3) I removed every single semicolon from the program.

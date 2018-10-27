@@ -1,0 +1,23 @@
+a) The biggest problem for me was figuring out, conceptually, how to calculate the cost based on the miles driven. It took me a while to wrap my head around the conditions for each distance, and then checking for the winter condition within each distance condition.
+
+b) (odoStart, odoEnd, rentalDays, customerName, luxuryString, month)
+Invalid Input:
+
+Negative starting odometer reading (-100, 100, 5, Caoilfhionn, y, 5)
+Ending odometer reading less than starting (500, 400, 5, Caoilfhionn, y, 5)
+Rental days is not positive (100, 300, -5, Caoilfhionn, y, 5)
+Empty string for customer's name (100, 300, 5, "", y, 5)
+Luxury status is not "y" or "n" (100, 300, 5, Caoilfhionn, q, 5)
+Month number is not 1 ≤ x ≤ 12 (100, 300, 5, Caoilfhionn, y, 40)
+Month number is not 1 ≤ x ≤ 12 (100, 300, 5, Caoilfhionn, y, -3)
+
+Valid Input:
+
+Luxury Car (0, 50, 5, Caoilfhionn, y, 5)
+Non-luxury Car (0, 50, 5, Caoilfhionn, n, 5)
+Total mileage less than 100 (0, 60, 5, Caoilfhionn, y, 5)
+Total mileage more than 100, less than 400 [non-winter] (0, 300, 5, Caoilfhionn, y, 5)
+Total mileage more than 100, less than 400 [winter] (0, 300, 5, Caoilfhionn, y, 1)
+Total mileage more than 100, less than 400 [winter] (0, 300, 5, Caoilfhionn, y, 12)
+Total mileage more than 400 (0, 500, 5, Caoilfhionn, y, 5)
+
