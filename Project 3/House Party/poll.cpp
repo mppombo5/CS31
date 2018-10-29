@@ -10,36 +10,42 @@ bool isValidUppercaseStateCode(string stateCode);
 
 int main() {
 
-    cout << "What is your poll data string? ";
     string pollString;
-    getline(cin, pollString);
-
-    cout << "What party would you like to tally? (one letter): ";
     char party;
-    cin >> party;
-
     int seats;
 
-    tallySeats(pollString, party, seats);
+    for (;;) {
+        cout << "What is your poll data string? ";
+        getline(cin, pollString);
 
-    int tallyReturn = tallySeats(pollString, party, seats);
+        if (pollString == "exit")
+            break;
 
-    switch (tallyReturn) {
-        case 0:
-            cout << "Party " << party << " is forecasted to win " << seats << " seats.\n";
-            break;
-        case 1:
-            cout << "You entered an invalid poll string.\n";
-            break;
-        case 2:
-            cout << "You entered a party value that is not a letter.\n";
-            break;
-        default:
-            cout << "What on earth did you do? I can't help you here, bud.\n";
-            break;
+        cout << "What party would you like to tally? (one letter): ";
+        cin >> party;
+
+        tallySeats(pollString, party, seats);
+
+        int tallyReturn = tallySeats(pollString, party, seats);
+
+        switch (tallyReturn) {
+            case 0:
+                cout << "Party " << party << " is forecasted to win " << seats << " seats.\n";
+                break;
+            case 1:
+                cout << "You entered an invalid poll string.\n";
+                break;
+            case 2:
+                cout << "You entered a party value that is not a letter.\n";
+                break;
+            default:
+                cout << "What on earth did you do? I can't help you here, bud.\n";
+                break;
+        }
+
+        cout << "tallySeats returned value " << tallyReturn << ".\n";
+        cin.ignore(10000, '\n');
     }
-
-    cout << "tallySeats returned value " << tallyReturn << ".\n";
 
     return 0;
 }
