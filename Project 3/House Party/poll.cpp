@@ -170,6 +170,8 @@ int tallySeats(string pollData, char party, int& seatTally) {
             if (k >= (pollData.size() - 1))
                 break;
         }
+        if (k >= (pollData.size() - 1))
+            break;
         // check if the character one ahead of the digit is a letter
         if (isalpha(pollData[k+1])) {
             if (pollData[k+1] == toupper(party)) {
