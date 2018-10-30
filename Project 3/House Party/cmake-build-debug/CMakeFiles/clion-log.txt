@@ -1,4 +1,0 @@
-"/Applications/CLion 2018.3 EAP.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/Library/Developer/CommandLineTools/usr/bin/clang++ -G "CodeBlocks - Unix Makefiles" "/Users/mpombo/Desktop/Q1 Classes/CS31/Projects/Project 3/House Party"
--- Configuring done
--- Generating done
--- Build files have been written to: /Users/mpombo/Desktop/Q1 Classes/CS31/Projects/Project 3/House Party/cmake-build-debug
