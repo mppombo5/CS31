@@ -11,9 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="631a03e5-4aa7-40dd-9917-e463212687a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Poll" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Poll" afterDir="false" />
-    </list>
+    <list default="true" id="631a03e5-4aa7-40dd-9917-e463212687a9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
