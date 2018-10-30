@@ -165,8 +165,11 @@ int tallySeats(string pollData, char party, int& seatTally) {
     size_t k = 0;
     while (k < pollData.size()) {
         // advance through the string until you hit a number
-        while (!isdigit(pollData[k]))
+        while (!isdigit(pollData[k])) {
             k++;
+            if (k >= (pollData.size() - 1))
+                break;
+        }
         // check if the character one ahead of the digit is a letter
         if (isalpha(pollData[k+1])) {
             if (pollData[k+1] == toupper(party)) {
