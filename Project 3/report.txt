@@ -1,0 +1,74 @@
+a) I think the biggest obstacle I overcame was figuring out how to restart the check for a valid poll string once a comma was reached. I don't even remember exactly how I came across it, but those six lines of code simplified the process of checking the string's validity and instantly clarified how I should go about it. Aside from that, the whole process was fairly straightforward – I was surprised by how easy it was to tally the seats for a party.
+
+b) Program Description
+
+My first function takes in a string and converts it to uppercase. This makes the checks for letters easier later on.
+
+Then I write the function to check if the poll string has the proper syntax:
+
+If the size of the data string is 0, return true. If it's 1, return false.
+Repeatedly:
+    If the first two characters are not letters, return false.
+    If they are letters but not a valid state string, return false.
+    Move forward two characters.
+    Repeatedly, until a comma is reached:
+	If the character after the state code is not a digit, return false.
+	Return false if there's not either one or two digits followed by a letter.
+    If a comma is reached, move forward one position and restart the check.
+    If it's not a comma, return false if there's anything after it.
+Return true if the last character in the string is not a comma.
+
+Next is my function to tally the seats for a party:
+
+I immediately make the string uppercase to make checking for letters easier.
+Return 1 if the poll string is not valid, and 2 if the party is not a letter.
+If both errors occur, return 1.
+Repeatedly:
+    Once a digit is found in the string:
+	Check if the letter one or two spaces after the digit is the same as the party specified.
+	    If it is, convert the digit characters into an int and add it to the party total.
+
+Last is the black magic Valid Uppercase State Code boolean we were provided.
+
+c) For my test cases, I created a loop that asks for the string and the party character, and outputs the seat tally for that party and what value tallySeats returned.
+
+Test for empty strings, one-character strings, and strings that only contain the state:
+"", f
+"c", f
+"1", f
+"ca", f
+"cf", f
+"1c", f
+"c1", f
+
+Test for strings that only have a number or letter after the state code:
+"ca1", f
+"caf", f
+
+Test for strings that end in two letters or two numbers:
+"ca11", f
+"caff", f
+
+Test for a valid poll string that has a one-digit value for a party:
+"ca7d", d
+"ca7d", r
+
+Test for a valid poll string that has a two-digit value for a party:
+"ca15d", d
+"ca15d", r
+
+Test for a valid poll string that has a mix of digits and parties:
+"ca1d15r9j", d
+"ca1d15r9j", r
+"ca1d15r9j", j
+"ca1d15r9j", f
+
+Do these tests but with strings separated by commas:
+"ca1d15r9j,ny7d8r", d
+"ca1d15r9j,ny7d8r,ct8r3d", r
+"ca1d15r9j,ny7d8r,ct8r3d", f
+"ca1d15r9j,ny7d8r,ct8r3d", j
+
+Check if the string ends in a comma, or if there are two commas in between:
+"ca1d15r9j,ny7d8r,ct8r3d,", r
+"ca1d15r9j,ny7d8r,,ct8r3d", r
