@@ -170,6 +170,8 @@ int tallySeats(string pollData, char party, int& seatTally) {
             if (k >= (pollData.size() - 1))
                 break;
         }
+        // IMPORTANT! Checks if k is at or after the end of pollData, so it doesn't
+        // check outside of the string's bounds. This one took a while.
         if (k >= (pollData.size() - 1))
             break;
         // check if the character one ahead of the digit is a letter

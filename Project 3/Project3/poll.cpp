@@ -122,7 +122,7 @@ bool hasProperSyntax(string pollData) {
 
         // if the end of one state's string is reached and the next character is a comma,
         // go back through the while loop and check for the next state's string
-        if (pollData[k] == ',') {
+        if (k < pollData.size() && pollData[k] == ',') {
             k++;
             continue;
         }
@@ -170,6 +170,8 @@ int tallySeats(string pollData, char party, int& seatTally) {
             if (k >= (pollData.size() - 1))
                 break;
         }
+        // IMPORTANT! Checks if k is at or after the end of pollData, so it doesn't
+        // check outside of the string's bounds. This one took a while.
         if (k >= (pollData.size() - 1))
             break;
         // check if the character one ahead of the digit is a letter

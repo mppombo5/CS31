@@ -1,4 +1,4 @@
-a) I think the biggest obstacle I overcame was figuring out how to restart the check for a valid poll string once a comma was reached. I don't even remember exactly how I came across it, but those six lines of code simplified the process of checking the string's validity and instantly clarified how I should go about it. Aside from that, the whole process was fairly straightforward – I was surprised by how easy it was to tally the seats for a party.
+a) I think the biggest obstacle I overcame was figuring out how to restart the check for a valid poll string once a comma was reached. I don't even remember exactly how I came across it, but those six lines of code simplified the process of checking the string's validity and instantly clarified how I should go about it. Another problem I faced was finding a bug in my program, which was extra confusing because it only occurred when building my program with g31. As it turns out, there were several scenarios where the program was trying to check for string positions larger than the string length, leading to undefined behavior. A simple if-break statement cleaned this up.
 
 b) Program Description
 

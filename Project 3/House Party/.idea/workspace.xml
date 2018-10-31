@@ -12,10 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="631a03e5-4aa7-40dd-9917-e463212687a9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/poll.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/poll.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Project3.zip" beforeDir="false" afterPath="$PROJECT_DIR$/../Project3.zip" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Project3/poll.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Project3/poll.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../report.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/poll.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+            <state relative-caret-position="1090">
+              <caret line="181" column="35" lean-forward="true" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -139,12 +138,12 @@
       <workItem from="1540884566448" duration="784000" />
       <workItem from="1540929471210" duration="1165000" />
       <workItem from="1540934586407" duration="1859000" />
-      <workItem from="1540943067091" duration="1421000" />
+      <workItem from="1540943067091" duration="2032000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38265000" />
+    <option name="totallyTimeSpent" value="38876000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -157,8 +156,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="79" y="46" width="1230" height="837" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20454545" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20454545" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -169,7 +169,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32885906" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" visible="true" weight="0.32885906" />
+      <window_info anchor="bottom" id="Messages" order="8" visible="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32885906" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32885906" />
@@ -206,8 +206,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/poll.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="120" lean-forward="true" selection-start-line="120" selection-end-line="120" />
+        <state relative-caret-position="1090">
+          <caret line="181" column="35" lean-forward="true" selection-start-line="181" selection-start-column="35" selection-end-line="181" selection-end-column="35" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
