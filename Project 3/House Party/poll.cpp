@@ -122,7 +122,7 @@ bool hasProperSyntax(string pollData) {
 
         // if the end of one state's string is reached and the next character is a comma,
         // go back through the while loop and check for the next state's string
-        if (pollData[k] == ',') {
+        if (k < pollData.size() && pollData[k] == ',') {
             k++;
             continue;
         }
