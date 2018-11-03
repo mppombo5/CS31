@@ -1,0 +1,24 @@
+appendToAll:
+
+appendToAll(arr, 6, "!!!");
+
+    for (int i = 0; i < 9; i++) {
+        cout << arr[i] << endl;
+    }
+
+=======================================================
+
+lookup:
+
+string s;
+    cout << "What string would you like to look for? ";
+    getline(cin, s);
+
+    int n;
+    cout << "Up to which position (user) would you like to check? ";
+    cin >> n;
+    n++;
+
+    int pos = lookup(arr, n, s);
+
+    cout << '"' << s << '"' << " is in position " << pos << "." << endl;
