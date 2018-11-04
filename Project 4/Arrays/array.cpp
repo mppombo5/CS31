@@ -4,24 +4,28 @@ using namespace std;
 
 int appendToAll(string a[], int n, string value);
 int lookup(const string a[], int n, string target);
+int positionOfMax(const string a[], int n);
+int rotateLeft(string a[], int n, int pos);
 
 int main() {
 
     string arr[9] = {
-            "hey there", "hi", "hello", "howdy", "hola", "bonjour", "asdf", "bcde", "thicc thighs"
+            "ape", "bonjour", "crapple", "heist", "georgia", "forgery", "alphabet", "denim", "icarus"
     };
 
     string s;
-    cout << "What string would you like to look for? ";
+    cout << "What string would you like to add on? ";
     getline(cin, s);
 
     int n;
-    cout << "Up to which position would you like to check? ";
+    cout << "Up to what position would you like to append this string? ";
     cin >> n;
 
-    int pos = lookup(arr, n, s);
+    appendToAll(arr, n, s);
 
-    cout << '"' << s << '"' << " is in position " << pos << ", starting from 0." << endl;
+    for (int i = 0; i < 9; i++) {
+        cout << arr[i] << endl;
+    }
 
     return 0;
 }
@@ -40,13 +44,31 @@ int appendToAll(string a[], int n, string value) {
 
 int lookup(const string a[], int n, string target) {
 
-    if (n < 0)
+    if (n <= 0)
         return -1;
 
-    for (int i = 0; i <= n; i++) {
+    for (int i = 0; i < (n - 1); i++) {
         if (a[i] == target) {
             return i;
         }
     }
     return -1;
+}
+
+int positionOfMax(const string a[], int n) {
+
+    if (n <= 0)
+        return -1;
+
+    int maxPos = 0;
+    for (int i = 0; i < n; i++) {
+        if (a[i] > a[maxPos])
+            maxPos = i;
+    }
+
+    return (maxPos);
+}
+
+int rotateLeft(string a[], int n, int pos) {
+    
 }

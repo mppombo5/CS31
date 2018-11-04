@@ -1,6 +1,14 @@
 appendToAll:
 
-appendToAll(arr, 6, "!!!");
+string s;
+    cout << "What string would you like to add on? ";
+    getline(cin, s);
+
+    int n;
+    cout << "Up to what position would you like to append this string? ";
+    cin >> n;
+
+    appendToAll(arr, n, s);
 
     for (int i = 0; i < 9; i++) {
         cout << arr[i] << endl;
@@ -15,10 +23,28 @@ string s;
     getline(cin, s);
 
     int n;
-    cout << "Up to which position (user) would you like to check? ";
+    cout << "Up to which position would you like to check? ";
     cin >> n;
     n++;
 
     int pos = lookup(arr, n, s);
 
-    cout << '"' << s << '"' << " is in position " << pos << "." << endl;
+    if (pos == -1) {
+        cout << "lookup returns -1.\n";
+        return 0;
+    }
+    cout << '"' << arr[pos] << '"' << " is located at arr[" << pos << "].\n";
+
+======================================================
+
+positionOfMax:
+
+int n;
+    cout << "Up to what position would you like to search for the highest value string? ";
+    cin >> n;
+
+    if (positionOfMax(arr, n) == -1) {
+        cout << "positionOfMax returns -1.\n";
+        return 0;
+    }
+    cout << "Position of max string is " << arr[positionOfMax(arr, n)] << " at arr[" << positionOfMax(arr, n) << "].\n";
