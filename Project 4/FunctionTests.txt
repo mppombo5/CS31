@@ -48,3 +48,77 @@ int n;
         return 0;
     }
     cout << "Position of max string is " << arr[positionOfMax(arr, n)] << " at arr[" << positionOfMax(arr, n) << "].\n";
+
+======================================================
+
+rotateLeft:
+
+int n;
+    cout << "What position would you like to be the back? ";
+    cin >> n;
+
+    int m;
+    cout << "What position would you like to move to the back? ";
+    cin >> m;
+
+    int q = rotateLeft(arr, n, m);
+
+    for (int i = 0; i < 9; i++) {
+        cout << arr[i] << endl;
+    }
+
+======================================================
+
+countRuns:
+
+int n;
+    cout << "Up to which position would you like to check for runs? ";
+    cin >> n;
+
+    int p = countRuns(arr2, n);
+
+    cout << "countRuns returns " << p << ".\n";
+
+======================================================
+
+flip:
+
+int n;
+    cout << "How many values would you like to flip? ";
+    cin >> n;
+
+    int q = flip(arr, n);
+    for (int i = 0; i < 9; i++) {
+        cout << arr[i] << endl;
+    }
+
+    cout << endl << "flip returns " << q << ".\n";
+
+======================================================
+
+differ:
+
+string arr1[9] = {
+            "ape", "bonjour", "crapple", "heist", "georgia", "forgery", "alphabet", "denim", "butts"
+    };
+
+    string arr2[9] = {
+            "ape", "bonjour", "crapple", "heist", "georgia", "forgery", "alphabet", "denim", "icarus"
+    };
+
+    int n;
+    cout << "Up to which value in the first string would you like to check for differences?\n";
+    cin >> n;
+
+    int m;
+    cout << "Up to which value in the second string would you like to check for differences?\n";
+    cin >> m;
+
+    int q = differ(arr1, n, arr2, m);
+
+    if (q == -1) {
+        cout << "differ returns -1.\n";
+        return 0;
+    }
+
+    cout << "differ returns value " << q << ".\n";

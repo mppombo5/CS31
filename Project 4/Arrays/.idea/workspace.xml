@@ -14,7 +14,6 @@
     <list default="true" id="345e3967-4a60-40aa-88c7-2f545df7066a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/array.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/array.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../FunctionTests.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../FunctionTests.txt" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,10 +28,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/array.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="219">
-              <caret line="31" column="77" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="31" selection-end-column="77" />
+            <state relative-caret-position="287">
+              <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#1395#1561#0" />
+                <element signature="e#1563#1776#0" />
+                <element signature="e#1254#1470#0" />
+                <element signature="e#1998#2125#0" />
+                <element signature="e#2127#2170#0" />
+                <element signature="e#2172#2381#0" />
+                <element signature="e#2276#2586#0" />
               </folding>
             </state>
           </provider>
@@ -120,12 +126,12 @@
       <workItem from="1541185241783" duration="540000" />
       <workItem from="1541190620831" duration="1512000" />
       <workItem from="1541202739043" duration="2134000" />
-      <workItem from="1541291100261" duration="4204000" />
+      <workItem from="1541291100261" duration="15569000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10801000" />
+    <option name="totallyTimeSpent" value="22166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="97" y="44" width="1230" height="837" extended-state="0" />
@@ -136,14 +142,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32885906" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32885906" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.32885906" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32885906" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32885906" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32885906" />
       <window_info anchor="bottom" id="CMake" order="12" />
@@ -155,6 +161,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/array.cpp</url>
+          <line>107</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
@@ -172,10 +189,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/array.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="31" column="77" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="31" selection-end-column="77" />
+        <state relative-caret-position="287">
+          <caret line="155" lean-forward="true" selection-start-line="155" selection-end-line="155" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#1395#1561#0" />
+            <element signature="e#1563#1776#0" />
+            <element signature="e#1254#1470#0" />
+            <element signature="e#1998#2125#0" />
+            <element signature="e#2127#2170#0" />
+            <element signature="e#2172#2381#0" />
+            <element signature="e#2276#2586#0" />
           </folding>
         </state>
       </provider>
