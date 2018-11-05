@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <cassert>
 using namespace std;
 
 int appendToAll(string a[], int n, string value);
@@ -15,21 +16,54 @@ int divide(string a[], int n, string divider);
 
 int main() {
 
+    /*string h[7] = { "greg", "gavin", "ed", "xavier", "", "eleni", "fiona" };
+    assert(lookup(h, 7, "eleni") == 5);
+    assert(lookup(h, 7, "ed") == 2);
+    assert(lookup(h, 2, "ed") == -1);
+    assert(positionOfMax(h, 7) == 3);
+
+    string g[4] = { "greg", "gavin", "fiona", "kevin" };
+    assert(differ(h, 4, g, 4) == 2);
+    assert(appendToAll(g, 4, "?") == 4 && g[0] == "greg?" && g[3] == "kevin?");
+    assert(rotateLeft(g, 4, 1) == 1 && g[1] == "fiona?" && g[3] == "gavin?");
+
+    string e[4] = { "ed", "xavier", "", "eleni" };
+    // assert(subsequence(h, 7, e, 4) == 2);
+
+    string d[5] = { "gavin", "gavin", "gavin", "xavier", "xavier" };
+    assert(countRuns(d, 5) == 2);
+
+    string f[3] = { "fiona", "ed", "john" };
+    assert(lookupAny(h, 7, f, 3) == 2);
+    assert(flip(f, 3) == 3 && f[0] == "john" && f[2] == "fiona");
+
+    // assert(divide(h, 7, "fiona") == 3);
+
+    cout << "All tests succeeded" << endl;*/
+
     string arr[9] = {
             "ape", "bonjour", "crapple", "heist", "georgia", "forgery", "effervescent", "denim", "icarus"
     };
 
-    string arr2[9] = {
-            "ape", "bonjour", "crapple", "crapple", "georgia", "forgery", "effervescent", "denim", "icarus"
+    string arr2[2] = {
+            "denim", "mom"
     };
 
     int n;
-    cout << "Up to which position would you like to check for runs? ";
+    cout << "Up to which element number in arr would you like to check? ";
     cin >> n;
 
-    int p = countRuns(arr2, n);
+    int m;
+    cout << "Up to which element number in arr2 would you like to compare? ";
+    cin >> m;
 
-    cout << "countRuns returns " << p << ".\n";
+    int q = lookupAny(arr, n, arr2, m);
+
+    if (q == -1) {
+        cout << "lookupAny returns -1.\n";
+        return 0;
+    }
+    cout << "lookupAny returns value " << q << " for an identical string within arr2.\n";
 
     return 0;
 }
@@ -116,10 +150,10 @@ int flip(string a[], int n) {
 
     for (int i = 0; i < (n / 2); i++) {
         // create separate string so it's not overwritten by a[i]
-        string last = a[n-(i+1)];
-        // don't use last, it'll reassign the value before the last replacement
+        string latter = a[n-(i+1)];
+        // don't use latter, it'll reassign the value before the last replacement
         a[n-(i+1)] = a[i];
-        a[i] = last;
+        a[i] = latter;
     }
     return n;
 }
@@ -141,19 +175,46 @@ int differ(const string a1[], int n1, const string a2[], int n2) {
         if (a1[i] != a2[i]) {
             // makes it easier to check when it actually finds a different string rather than
             // defaulting to l
-            cerr << "a different string was found at position " << i << ".\n";
+            // cerr << "a different string was found at position " << i << ".\n";
             return i;
         }
     }
     return l;
 }
 
+// just check to n1 - n2, because if it goes past then it'll try to check past the bounds
 int subsequence(const string a1[], int n1, const string a2[], int n2) {
 
+    if (n1 < 0 || n2 < 0)
+        return -1;
+
+    /*
+     * check at each value from a1[0] to at[n1] if:
+     * a2[0] to a2[n2] is contained, goes n2 times
+     */
+
+    for (int i = 0; i < n1; i++) {
+        for (int j = 0; j < n2; j++) {
+            if (a1[i] == a2[j]) {
+
+            }
+        }
+    }
 }
 
 int lookupAny(const string a1[], int n1, const string a2[], int n2) {
 
+    if (n1 < 0 || n2 < 0)
+        return -1;
+
+    for (int i = 0; i < n1; i++) {
+        for (int j = 0; j < n2; j++) {
+            if (a1[i] == a2[j]) {
+                return i;
+            }
+        }
+    }
+    return -1;
 }
 
 int divide(string a[], int n, string divider) {

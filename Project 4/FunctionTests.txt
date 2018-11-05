@@ -1,3 +1,16 @@
+
+Arrays for testing:
+
+string arr[9] = {
+            "ape", "bonjour", "crapple", "heist", "georgia", "forgery", "effervescent", "denim", "icarus"
+    };
+
+string arr2[9] = {
+            "ape", "bonjour", "crapple", "crapple", "georgia", "forgery", "effervescent", "denim", "icarus"
+    };
+
+=======================================================
+
 appendToAll:
 
 string s;
