@@ -16,7 +16,7 @@ int divide(string a[], int n, string divider);
 
 int main() {
 
-    /*string h[7] = { "greg", "gavin", "ed", "xavier", "", "eleni", "fiona" };
+    string h[7] = { "greg", "gavin", "ed", "xavier", "", "eleni", "fiona" };
     assert(lookup(h, 7, "eleni") == 5);
     assert(lookup(h, 7, "ed") == 2);
     assert(lookup(h, 2, "ed") == -1);
@@ -28,7 +28,7 @@ int main() {
     assert(rotateLeft(g, 4, 1) == 1 && g[1] == "fiona?" && g[3] == "gavin?");
 
     string e[4] = { "ed", "xavier", "", "eleni" };
-    // assert(subsequence(h, 7, e, 4) == 2);
+    assert(subsequence(h, 7, e, 4) == 2);
 
     string d[5] = { "gavin", "gavin", "gavin", "xavier", "xavier" };
     assert(countRuns(d, 5) == 2);
@@ -39,31 +39,23 @@ int main() {
 
     // assert(divide(h, 7, "fiona") == 3);
 
-    cout << "All tests succeeded" << endl;*/
+    cout << "All tests succeeded" << endl;
 
-    string arr[9] = {
+    /*string arr[9] = {
             "ape", "bonjour", "crapple", "heist", "georgia", "forgery", "effervescent", "denim", "icarus"
     };
 
-    string arr2[2] = {
-            "denim", "mom"
+    string arr2[9] = {
+            "ape", "ape", "bonjour", "crapple", "crapple", "crapple", "heist", "georgia", "icarus"
     };
 
     int n;
-    cout << "Up to which element number in arr would you like to check? ";
+    cout << "Up to which position would you like to check for runs? ";
     cin >> n;
 
-    int m;
-    cout << "Up to which element number in arr2 would you like to compare? ";
-    cin >> m;
+    int p = countRuns(arr2, n);
 
-    int q = lookupAny(arr, n, arr2, m);
-
-    if (q == -1) {
-        cout << "lookupAny returns -1.\n";
-        return 0;
-    }
-    cout << "lookupAny returns value " << q << " for an identical string within arr2.\n";
+    cout << "countRuns returns " << p << ".\n";*/
 
     return 0;
 }
@@ -132,7 +124,7 @@ int countRuns(const string a[], int n) {
     int runsCounter = 0;
     while (i <= n) {
         // don't add to counter until you hit a new word
-        while (a[i-1] == a[i]) {
+        while (i < n && a[i-1] == a[i]) {
             i++;
         }
         runsCounter++;
@@ -182,24 +174,27 @@ int differ(const string a1[], int n1, const string a2[], int n2) {
     return l;
 }
 
-// just check to n1 - n2, because if it goes past then it'll try to check past the bounds
 int subsequence(const string a1[], int n1, const string a2[], int n2) {
 
-    if (n1 < 0 || n2 < 0)
+    if (n1 < 0 || n2 < 0 || n2 > n1)
         return -1;
 
-    /*
-     * check at each value from a1[0] to at[n1] if:
-     * a2[0] to a2[n2] is contained, goes n2 times
-     */
-
-    for (int i = 0; i < n1; i++) {
-        for (int j = 0; j < n2; j++) {
-            if (a1[i] == a2[j]) {
-
-            }
+    int i = 0;
+    int j = 0;
+    while (i < n1) {
+        if (a1[i] == a2[j]) {
+            i++;
+            j++;
+        }
+        else {
+            i++;
+            j = 0;
+        }
+        if (j == n2) {
+            return (i - n2);
         }
     }
+    return -1;
 }
 
 int lookupAny(const string a1[], int n1, const string a2[], int n2) {
@@ -218,5 +213,9 @@ int lookupAny(const string a1[], int n1, const string a2[], int n2) {
 }
 
 int divide(string a[], int n, string divider) {
+
+    if (n < 0)
+        return -1;
+
 
 }

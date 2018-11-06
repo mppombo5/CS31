@@ -135,3 +135,48 @@ string arr1[9] = {
     }
 
     cout << "differ returns value " << q << ".\n";
+
+=====================================================
+
+int n;
+    cout << "How many elements of arr do you want to check? ";
+    cin >> n;
+
+    int m;
+    cout << "How many elements of arr2 do you want to compare? ";
+    cin >> m;
+
+    int q = subsequence(arr, n, arr2, m);
+
+    if (q == -1) {
+        cout << "subsequence returns -1.\n";
+        return 0;
+    }
+
+    cout << "subsequence returns " << q << ".\n" << "That corresponds to " << arr[q] << " in the array.\n";
+
+=====================================================
+
+divide:
+
+int n;
+    cout << "How many elements of arr would you like to divide? ";
+    cin >> n;
+
+    cin.ignore(10000, '\n');
+
+    string s;
+    cout << "What string would you like to be your divider? ";
+    getline(cin, s);
+
+    int q = divide(arr, n, s);
+
+    if (q == -1) {
+        cout << "divide returns -1.\n";
+        return 0;
+    }
+    cout << "divide returns value " << q << ".\n";
+
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << endl;
+    }
