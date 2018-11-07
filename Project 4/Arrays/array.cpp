@@ -56,8 +56,6 @@ int main() {
 
     assert(divide(h, 7, "fiona") == 3);
 
-    cout << "All tests succeeded" << endl;
-
     string arrO[9] = {
             "ape", "bonjour", "crapple", "denim", "effervescent", "forgery", "georgia", "heist", "icarus"
     };
@@ -71,6 +69,11 @@ int main() {
     };
 
     assert(divide(arr2, 9, "z") == 9);
+    assert(divide(arr2, 9, "crapple") == 2);
+    assert(divide(arr2, 9, "denim") == 3);
+    assert(divide(arr2, 9, "a") == 0);
+    assert(divide(arr2, 9, "ape") == 0);
+    assert(divide(arr2, 9, "icarus") == 8);
 
     cout << "All test cases succeeded!\n";
 
@@ -119,7 +122,7 @@ int positionOfMax(const string a[], int n) {
 // put word at pos at position n, move other letters to the left
 int rotateLeft(string a[], int n, int pos) {
 
-    if (pos < 0)
+    if (pos < 0 || n < 0 || pos > n)
         return -1;
 
     // create separate string so you can smack it on the end;
@@ -141,6 +144,7 @@ int countRuns(const string a[], int n) {
     int runsCounter = 0;
     while (i <= n) {
         // don't add to counter until you hit a new word
+        // added check for if i ≥ n, otherwise it'd check out of bounds
         while (i < n && a[i-1] == a[i]) {
             i++;
         }
@@ -182,8 +186,6 @@ int differ(const string a1[], int n1, const string a2[], int n2) {
 
     for (int i = 0; i < l; i++) {
         if (a1[i] != a2[i]) {
-            // makes it easier to check when it actually finds a different string rather than
-            // defaulting to l
             // cerr << "a different string was found at position " << i << ".\n";
             return i;
         }
@@ -242,13 +244,16 @@ int divide(string a[], int n, string divider) {
     int j = (n - 1);
 
     // only go until they reach each other
+    // this is basically the partition part of a quicksort
     while (i <= j) {
         // increment i until a[i] ≥ divider
-        while (a[i] < divider) {
+        // also check if it's greater than n, because it'll go in an endless loop
+        while (i < n && a[i] < divider) {
             i++;
         }
         // decrement j until a[j] < divider
-        while (a[j] >= divider)
+        // also check if it's greater than n
+        while (j >= 0 && a[j] >= divider)
             j--;
         // swap the two values only if i is still less than j
         if (i <= j) {
@@ -269,6 +274,7 @@ int divide(string a[], int n, string divider) {
         }
     }
 
+    // only do this if divider is contained in the array, that's why I set it to -1
     if (dividerPos != -1) {
         string tmp = a[dividerPos];
         a[dividerPos] = a[i];
