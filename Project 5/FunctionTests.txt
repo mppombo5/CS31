@@ -1,0 +1,67 @@
+makeProper:
+
+const int TEST_SEPARATION = 8;
+
+    // HELLO THERE GENERAL KENOBI YOU ARE
+    char test1[TEST_SEPARATION][MAX_WORD_LENGTH+1] = {
+            {"mad"},
+            {"deranged"},
+            {"NEFARIOUS"},
+            {"half-witted"},
+            {"robot"},
+            {"plot"},
+            {"have"},
+            {"NeFaRiOuS"}
+            /*{"HELLO"},
+            {"THERE"},
+            {"GENERAL"},
+            {"KENOBI"},
+            {"YOU"},
+            {"ARE"}*/
+    };
+    // A BOLD ONE YOURE SHORTER THAN
+    char test2[TEST_SEPARATION][MAX_WORD_LENGTH+1] = {
+            {"scientist"},
+            {"robot"},
+            {"PLOT"},
+            {"assistant"},
+            {"deranged"},
+            {"Nefarious"},
+            {"mad"},
+            {"pLoT"}
+            /*{"A"},
+            {"BOLD"},
+            {"ONE"},
+            {"YOURE"},
+            {"SHORTER"},
+            {"THAN"}*/
+    };
+    int testSep[TEST_SEPARATION] = {
+            1, 3, 0, 2, 1, 0, 12, 0
+    };
+
+    int m = makeProper(test1, test2, testSep, TEST_SEPARATION);
+
+    for (int i = 0; i < m; i++) {
+        for (int k = 0; test1[i][k] != '\0'; k++) {
+            cout << test1[i][k];
+        }
+        cout << endl;
+    }
+    cout << endl;
+    for (int i = 0; i < m; i++) {
+        for (int k = 0; test2[i][k] != '\0'; k++) {
+            cout << test2[i][k];
+        }
+        cout << endl;
+    }
+    cout << endl;
+    for (int i = 0; i < m; i++) {
+        cout << testSep[i];
+        cout << endl;
+    }
+
+=======================================================
+
+rate:
+
