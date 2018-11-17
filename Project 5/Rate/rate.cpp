@@ -27,7 +27,7 @@ int main() {
 
     const int TEST1_NRULES = 4;
 
-    char doc[MAX_DOC_LENGTH] = "  That     plot: NEFARIOUS!";
+    char doc[MAX_DOC_LENGTH] = "The mad UCLA scientist unleashed a deranged evil giant robot.";
 
     char test1w1[TEST1_NRULES][MAX_WORD_LENGTH+1] = {
             "mad",       "deranged", "nefarious", "have"
@@ -149,13 +149,8 @@ int makeProper(char word1[][MAX_WORD_LENGTH+1], char word2[][MAX_WORD_LENGTH+1],
             rotateLeftAll(word1, word2, separation, nPatternsNew, i);
             nPatternsNew--;
             i--;
-            removed = true;
-        }
-        if (removed)
             continue;
-
-        // lastly, check for duplicates in either order
-        // this one will probably be a bit more involved
+        }
     }
 
     // lastly, check for duplicates in either order
@@ -193,6 +188,9 @@ int makeProper(char word1[][MAX_WORD_LENGTH+1], char word2[][MAX_WORD_LENGTH+1],
 int rate(const char document[], const char word1[][MAX_WORD_LENGTH+1],
          const char word2[][MAX_WORD_LENGTH+1], const int separation[], int nPatterns) {
 
+    if (nPatterns <= 0)
+        return 0;
+
     // create a copy of 'document' you can work with (make lowercase, make into proper form etc)
     char doc[MAX_DOC_LENGTH];
     strcpy(doc, document);
@@ -214,8 +212,48 @@ int rate(const char document[], const char word1[][MAX_WORD_LENGTH+1],
             i--;
         }
     }
-
-    for (int i = 0; doc[i] != '\0'; i++) {
-        cerr << doc[i];
+    if (doc[0] == ' ') {
+        rotateLeftOne(doc, MAX_DOC_LENGTH, 0);
     }
+
+    // at this point, we can start checking for rates and such now that our document is in a palatable form
+
+    // create new 2D array to put created strings into
+    char doc1[MAX_DOC_LENGTH][MAX_DOC_LENGTH];
+
+    // index at the start to increment through doc
+    int i = 0;
+    // first position of the string
+    int charStart = 0;
+    // counter for words in 2D array
+    int wordCounter = 0;
+    while (i <= MAX_DOC_LENGTH && doc[i] != '\0') {
+        // temporary word to add to new string array
+        char tempWord[MAX_DOC_LENGTH] = "";
+        // make sure to check for the zero byte, otherwise it'll keep checking until it hits who knows what space and where
+        while (doc[i] != ' ' && doc[i] != '\0') {
+            i++;
+        }
+        int j = 0;
+        for (int k = charStart; k < i; k++) {
+            tempWord[j] = doc[k];
+            j++;
+        }
+        tempWord[j+1] = '\0';
+        // debug statement to make sure it's outputting the right words
+        /*for (int n = 0; tempWord[n] != '\0'; n++) {
+         * cerr << tempWord[n];
+        }*/
+        strcpy(doc1[wordCounter], tempWord);
+        i++;
+        charStart = i;
+        wordCounter++;
+    }
+    for (int d = 0; d < wordCounter; d++) {
+        cerr << doc1[d] << endl;
+    }
+
+    // experiment for converting to strings ends here ===========================================================
+
+    return 0;
 }
