@@ -45,8 +45,8 @@ int main() {
                 test1w1, test1w2, test1dist, TEST1_NRULES) == 1);
     assert(rate("deranged deranged robot deranged robot robot",
                 test1w1, test1w2, test1dist, TEST1_NRULES) == 1);
-    //assert(rate("That scientist said two mad scientists suffer from deranged-robot fever.",
-                   //test1w1, test1w2, test1dist, TEST1_NRULES) == 0);
+    assert(rate("That scientist said two mad scientists suffer from deranged-robot fever.",
+                   test1w1, test1w2, test1dist, TEST1_NRULES) == 0);
     cout << "All tests succeeded" << endl;
 
     return 0;
@@ -289,7 +289,7 @@ int rate(const char document[], const char word1[][MAX_WORD_LENGTH+1],
                 if ((k - (separation[i] + 1)) < 0)
                     startIndex = 0;
                 else
-                    startIndex = i - (separation[i] + 1);
+                    startIndex = k - (separation[i] + 1);
                 // start index at startIndex, which will be the right position; increment until either j reaches
                 // i + separation[i], or until j reaches the end of docAsArray
                 for (int j = startIndex; j < (k + (separation[i] + 1)) || j < wordCounter; j++) {
