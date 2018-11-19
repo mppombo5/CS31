@@ -65,3 +65,15 @@ const int TEST_SEPARATION = 8;
 
 rate:
 
+// startIndex to determine where to start the check for matching words – make 0 if
+        // the current position in docAsArray minus separation of that value is less than 0
+        int startIndex;
+        if ((i - separation[i]) < 0)
+            startIndex = 0;
+        else
+            startIndex = i - separation[i];
+        // start index at startIndex, which will be the right position; increment until either j reaches
+        // i + separation[i], or until j reaches the end of docAsArray
+        for (int j = startIndex; j < (i + separation[i]) || j < wordCounter; j++) {
+            if ()
+        }
