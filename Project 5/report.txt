@@ -1,0 +1,205 @@
+a) The biggest obstacle I overcame was understanding what the project was actually asking: I thought for a long while that the makeProper function was actually asking me to put words in a document such that they fit the parameters and separation values, which I now realize is practically only possible through brute force methods. Once I actually started working on it, though, it took me a while to figure out how to remove duplicates from word1 and word2 in makeProper. In the rate function, it was slightly conceptually difficult to convert document[] into an array of strings, though implementing it fortunately didn't prove to be that difficult. Once I had that done, it was only a few bugs I had to squash before I got it working fine.
+
+b) Description of my program:
+
+two constant integers: 20 for max word length, 250 for max document length
+
+a void function that makes each string in a 2D array lowercase.
+
+a void function that makes each character in a 1D array lowercase.
+
+a void function that rotates word1, word2, and separation one to the left
+
+a void function that rotates each element in one function to the left.
+
+makeProper:
+	if nPatterns is less than or equal to 0, return 0 because there won't be any patterns to count
+
+	declare an int to count the new number of patterns and initialize it to nPatterns
+
+	make each word in word1 and word2 lowercase
+
+	make a boolean "removed" that returns true if an element has been removed
+
+	repeatedly, for each set of parameters until it reaches the (dynamic) number of patterns:
+
+		set removed to false
+
+		if the separation value is negative:
+
+			shift word1, word2, and separation ("all three") left one
+
+			decrement nPatternsNew and go back to the start of the loop
+
+		repeatedly, for each character in word1 AND word2:
+
+			if the character is not a letter:
+
+				rotate all three left, decrement nPatternsNew, and set removed to true
+				break out of the for loop
+
+		if removed is true, go back to the start of the loop
+
+		if the first element in word1 or word2 is an empty string:
+
+			rotate all three left and decrement nPatternsNew
+
+	create two temporary words of length MAX_WORD_LENGTH+1
+
+	repeatedly, for each word in word1 and word2 (of dynamic length):
+
+		make the temporary words equal to word1 and word2 at that position
+
+		repeatedly, for each word in word1 and word2 (of dynamic length):
+
+			if either of the temporary words are equal to either word1 or word2, and they're in different positions:
+
+				remove all three for which the separation value is smaller
+
+			decrement nPatternsNew
+
+	return the value of nPatternsNew
+
+rate:
+
+	if nPatterns is less than or equal to 0, return 0 for no rating
+
+	declare a copy of document "doc copy" that you can modify
+
+	replace each character in doc copy with the zero byte (weird stuff happens in memory if you don't)
+
+	copy document into doc copy
+
+	make doc copy lowercase
+
+	repeatedly, for each character in doc copy:
+
+		if the character is not a space or a letter, remove it and rotate doc copy left one
+
+	repeatedly, for each character in doc copy and starting at position 1:
+
+		if the character and the character before it are a space:
+
+			remove the latter space and rotate doc copy left one
+
+	if the first character of doc copy is a space, remove it and rotate doc copy left one
+
+	declare an array of strings "doc array" with 251 elements and each 251 characters long
+
+	make each word in doc array an empty string
+
+	declare integers index, charStart, and wordCounter as 0
+
+	repeatedly, until index is greater than the length of doc copy or it hits a space/zero byte:
+
+		declare an empty string tempWord
+
+		increment index until position index of doc copy is a space or zero byte
+
+		declare an int j as 0
+
+		repeatedly, starting at charStart and going until position index:
+
+			set the character at position j in tempWord to the corresponding character in the loop, and increment j
+
+		stick a zero byte on the end of tempWord
+
+		add tempWord to doc array
+
+		increment index and wordCounter, set charStart to index
+
+	declare rateCounter, the rating, and initialize it to 0
+
+	repeatedly, for each word in word1:
+
+		declare false boolean foundMatch
+
+		repeatedly, for each word in doc array
+
+			break if foundMatch is true
+
+			if there's a match between doc array and word1:
+
+				check for each word going (separation + 1) words in either direction
+
+					if there's a match with word2, increment rateCounter by 1
+
+	return rateCounter
+
+c) The first routine I wrote to check my code took manual input so I could thoroughly test makeProper as I kept writing the function:
+
+    const int TEST_SEPARATION = 6;
+
+    // HELLO THERE GENERAL KENOBI YOU ARE
+    char test1[TEST_SEPARATION][MAX_WORD_LENGTH+1] = {
+            {"HELLO"},
+            {"THERE"},
+            {"GENERAL"},
+            {"KENOBI"},
+            {"YOU"},
+            {"ARE"}
+    };
+    // A BOLD ONE YOURE SHORTER THAN
+    char test2[TEST_SEPARATION][MAX_WORD_LENGTH+1] = {
+            {"A"},
+            {"BOLD"},
+            {"ONE"},
+            {"YOURE"},
+            {"SHORTER"},
+            {"THAN"}
+    };
+    int testSep[TEST_SEPARATION] = {
+            1, 3, 0, 5, 4, 6
+    };
+
+    int m = makeProper(test1, test2, testSep, TEST_SEPARATION);
+
+    for (int i = 0; i < m; i++) {
+        for (int k = 0; test1[i][k] != '\0'; k++) {
+            cout << test1[i][k];
+        }
+        cout << endl;
+    }
+    cout << endl;
+    for (int i = 0; i < m; i++) {
+        for (int k = 0; test2[i][k] != '\0'; k++) {
+            cout << test2[i][k];
+        }
+        cout << endl;
+    }
+    cout << endl;
+    for (int i = 0; i < m; i++) {
+        cout << testSep[i];
+        cout << endl;
+    }
+
+This let me check how each word was being manipulated and change each value, insert characters, etc. to check a wide range of inputs.
+
+In addition to this, I used the assert cases provided to us:
+
+const int TEST1_NRULES = 4;
+            char test1w1[TEST1_NRULES][MAX_WORD_LENGTH+1] = {
+                "mad",       "deranged", "nefarious", "have"
+            };
+            char test1w2[TEST1_NRULES][MAX_WORD_LENGTH+1] = {
+                "scientist", "robot",    "plot",      "mad"
+            };
+            int test1dist[TEST1_NRULES] = {
+                1,           3,          0,           12
+            };
+            assert(rate("The mad UCLA scientist unleashed a deranged evil giant robot.",
+			test1w1, test1w2, test1dist, TEST1_NRULES) == 2);
+            assert(rate("The mad UCLA scientist unleashed    a deranged robot.",
+			test1w1, test1w2, test1dist, TEST1_NRULES) == 2);
+            assert(rate("**** 2018 ****",
+			test1w1, test1w2, test1dist, TEST1_NRULES) == 0);
+            assert(rate("  That plot: NEFARIOUS!",
+			test1w1, test1w2, test1dist, TEST1_NRULES) == 1);
+            assert(rate("deranged deranged robot deranged robot robot",
+			test1w1, test1w2, test1dist, TEST1_NRULES) == 1);
+            assert(rate("That scientist said two mad scientists suffer from deranged-robot fever."
+			test1w1, test1w2, test1dist, TEST1_NRULES) == 0);
+            cout << "All tests succeeded" << endl;
+
+I also used the project tester on the linux server.
+
