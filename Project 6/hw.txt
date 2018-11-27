@@ -1,0 +1,166 @@
+Problem 1
+ 
+a)
+    int main()
+    {
+        int arr[3] = { 5, 10, 15 };
+        int* ptr = arr;
+
+    --> *ptr = 10;          // set arr[0] to 10
+    --> *(ptr + 1) = 20;    // set arr[1] to 20
+        ptr += 2;
+    --> ptr[0] = 30;        // set arr[2] to 30
+
+        while (ptr >= arr)
+        {
+            cout << *ptr << endl;    // print values
+    -->     ptr--;
+        }
+    }
+
+
+b) This function doesn't do that because it passes the pointer by value, not by reference, and therefore just copies the value of the pointer into the function for its use. A simple change to the function's parameters makes the main routine work perfectly:
+
+void findMax(int arr[], int n, int*& pToMax);
+
+
+c) The problem with the main routine is that the argument passed to the function is a pointer initialized with garbage. The way it's written now, the garbage pointer is copied into the function, and nothing useful is done because the pointer itself is not altered (and lands in a loop if initialized to nullptr). This can be fixed by changing ptr to an int, rather than a pointer to an int, and changing the argument in computeCube to a generation of a pointer to that int:
+
+int main()
+{
+    int ptr;
+    computeCube(5, &ptr);
+    cout << "Five cubed is " << ptr << endl;
+}
+
+
+d) The main problem with this function is that all the comparisons are comparing pointers, rather than the values of said pointers. In a case like this, where the strings are stored in two different memory locations, the pointers will never be the same. One possible solution would be to create two index pointers, initialize them to str1 and str2, and do all the comparisons using the values those pointers point to:
+
+bool strequal(const char str1[], const char str2[])
+{
+    const char* ptr1 = str1;
+    const char* ptr2 = str2;
+    while (*ptr1 != '\0'  &&  *ptr2 != '\0')
+    {
+        if (*ptr1 != *ptr2)  // compare corresponding characters
+            return false;
+        ptr1++;            // advance to the next character
+        ptr2++;
+    }
+    return *ptr1 == *ptr2;   // both ended at same time?
+}
+
+
+e) The program doesn't declare any function within the main routine; any arrays it uses are declared and used within different functions it uses.
+
+
+============================================================
+Problem 2
+
+a) double* cat;
+b) double mouse[5];
+c) cat = &mouse[4];
+d) *cat = 25;
+e) *(mouse + 3) = 42;
+f) cat = cat - 3;
+g) cat[1] = 27;
+h) cat[0] = 54;
+i) bool b = (*cat == *(cat + 1));
+j) bool d = (cat == mouse);
+
+
+============================================================
+Problem 3
+
+a)
+    double mean(const double* scores, int numScores)
+    {
+        const double* ptr = scores;
+        double tot = 0;
+        int index = 0;
+        while (ptr != scores + numScores)
+        {
+            tot += *(ptr + index);
+            index++;
+        }
+        return tot/numScores;
+    }
+
+
+b)
+    const char* findTheChar(const char* str, char chr)
+    {
+        for (int k = 0; *(str + k) != '\0'; k++)
+            if (*(str + k) == chr)
+                return &str[k];
+
+        return nullptr;
+    }
+
+
+c)
+    const char* findTheChar(const char* str, char chr)
+    {
+        while (*str != '\0') {
+	    if (*str == chr)
+		return str;
+	    str++;
+        }
+	
+	return nullptr;
+    }
+
+
+==========================================================
+
+Problem 4
+
+3
+4
+79
+-1
+9
+22
+19
+
+The first line of output prints 3.
+ptr is first initialized to the address of array[0] according to maxwell. array[0] is then set to -1, and ptr is moved two elements forward in the array, to array[2]. The first element after array[2], array[3], is then set to 9. Then the value of the first element after array[0] is set to 79. After all this, the expression "&array[5] – ptr" means the difference in memory between array[5] and array[2], which by pointer arithmetic is 3. At this point, array contains {-1, 79, 4, 9, 22, 19}
+
+The remaining lines output the contents of array after the two swaps.
+swap1 doesn't actually switch any of the elements in array, because all it does is switch memory addresses in the function which don't actually bear any effect on the values in the elements. swap2, however, does switch the first and third elements of array, so -1 and 4 are switched.
+
+Here's my rough work, shown below:
+
+ptr = array[0] (array[0] > array[2])
+array[0] = -1
+ptr points to array[2]
+array[3] = 9
+array[1] = 79
+cout << &array[5] - &array[2] = 3 by pointer arithmetic
+array contains {-1, 79, 4, 9, 22, 19}
+
+swap1 doesn't do anything to the elements of the array, since it's just switching memory addresses and not following any of the pointers to a value.
+swap2 swaps array[0] and array[2]
+array now contains {4, 79, -1, 9, 22, 19}
+
+
+==========================================================
+
+Problem 5
+
+void removeS(char* str) {
+    while (*str != '\0') {
+	if (*str == 's' || *str == 'S') {
+	    char* ptr = str;
+	    while (*ptr != '\0') {
+		*ptr = *(ptr + 1);
+		ptr++;
+	    }
+	str--;
+	}
+    str++;
+    }
+}
+
+
+
